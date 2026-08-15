@@ -10,9 +10,6 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-# ----------------------------------------------------
-# CONFIGURATION
-# ----------------------------------------------------
 
 DEVICE_ID = "sim-device-001"
 
@@ -27,17 +24,11 @@ MQTT_TOPIC = f"devices/{DEVICE_ID}/telemetry"
 PUBLISH_INTERVAL_SECONDS = 5
 
 
-# ----------------------------------------------------
-# INITIAL SENSOR VALUES
-# ----------------------------------------------------
-
 temperature = 27.0
 humidity = 60.0
 
 
-# ----------------------------------------------------
 # CREATE MQTT CONNECTION
-# ----------------------------------------------------
 
 mqtt_connection = mqtt_connection_builder.mtls_from_path(
     endpoint=IOT_ENDPOINT,
@@ -61,10 +52,7 @@ mqtt_connection.connect().result()
 
 print("Connected successfully to AWS IoT Core!")
 
-
-# ----------------------------------------------------
 # GENERATE + PUBLISH TELEMETRY
-# ----------------------------------------------------
 
 try:
 
