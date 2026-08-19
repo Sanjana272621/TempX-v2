@@ -15,9 +15,11 @@ DEVICE_ID = "sim-device-001"
 
 IOT_ENDPOINT = os.getenv("IOT_ENDPOINT")
 
-CERT_PATH = "certs/certificate.pem.crt"
-PRIVATE_KEY_PATH = "certs/private.pem.key"
-ROOT_CA_PATH = "certs/AmazonRootCA1.pem"
+CERT_DIR = os.path.join("certs", DEVICE_ID)
+
+CERT_PATH = os.path.join(CERT_DIR, "certificate.pem.crt")
+PRIVATE_KEY_PATH = os.path.join(CERT_DIR, "private.pem.key")
+ROOT_CA_PATH = os.path.join("certs", "AmazonRootCA1.pem")
 
 MQTT_TOPIC = f"devices/{DEVICE_ID}/telemetry"
 
