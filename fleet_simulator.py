@@ -187,16 +187,18 @@ def main():
         threads.append(thread)
 
     try:
-        for thread in threads:
-            thread.join()
+        while any(thread.is_alive() for thread in threads):
+            for thread in threads:
+                thread.join(timeout=1)
 
     except KeyboardInterrupt:
         print("\nStopping fleet...")
         stop_event.set()
 
         for thread in threads:
-            thread.join()
+            thread.join(timeout=5)
 
-
+        print("Fleet stopped.")
+        
 if __name__ == "__main__":
     main()
