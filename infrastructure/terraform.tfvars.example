@@ -1,0 +1,19 @@
+aws_region = "ap-south-1"
+
+telemetry_table_name = "tempx-telemetry"
+lambda_function_name = "tempx-store-telemetry"
+lambda_role_name      = "tempx-store-telemetry-role"
+iot_rule_name         = "tempx_store_telemetry"
+iot_policy_name       = "tempx-device-policy"
+
+device_ids = [
+  "sim-device-001",
+  "sim-device-002",
+  "sim-device-003",
+]
+
+certificate_arns = {
+  sim-device-001 = "arn:aws:iot:ap-south-1:ACCOUNT_ID:cert/CERTIFICATE_ID"
+  sim-device-002 = "arn:aws:iot:ap-south-1:ACCOUNT_ID:cert/CERTIFICATE_ID"
+  sim-device-003 = "arn:aws:iot:ap-south-1:ACCOUNT_ID:cert/CERTIFICATE_ID"
+}
